@@ -1,0 +1,33 @@
+// File: app/build.gradle  (modulo "app")
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.keystonehelper'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.keystonehelper"
+        minSdk 30
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // Nessuna dipendenza: l'app usa solo le API della piattaforma Android
+}

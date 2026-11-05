@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Permessi: l'accelerometro/giroscopio e l'avvio di un'altra app con Intent
+        esplicito non richiedono permessi nel Manifest. Il permesso di Root ("su")
+        non si dichiara qui: viene concesso dal gestore root (es. Magisk) al primo uso.
+    -->
+
+    <!-- Il proiettore non ha touchscreen e usa il telecomando -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+
+    <!-- Android 11 (API 30): visibilita' del pacchetto dell'app di autofocus -->
+    <queries>
+        <package android:name="com.hysd.vafocus" />
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:label="Keystone Helper"
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- Icona nel launcher normale -->
+                <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Icona nei launcher in stile Android TV / proiettore -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
